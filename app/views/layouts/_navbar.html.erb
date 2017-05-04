@@ -2,10 +2,26 @@
   <%= link_to "Home", root_path, class: 'item' %>
   
   <% if current_user %>
-    <%= link_to 'Sign Out', signout_path, class: 'item' %>
+    <%= link_to 'Sign Out', signout_path, method: 'delete', class: 'item' %>
   <% else %>
-    <%= link_to 'Sign In', signin_path, class: 'item' %>
+    <%= link_to 'Sign In', signin_path, class: 'item', id: "sign_in_modal" %>
   <% end %>
 </div>
 <br>
 <br>
+
+<div class="ui small modal">
+  <h3 class="ui icon header">Sign in to your account</h3>
+  <div class="content">
+    <div class="ui large form">
+      <%= render 'sessions/form' %>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $("#sign_in_modal").click(function(event){
+    event.preventDefault();
+    $('.small.modal').modal('show');
+  });
+</script>
