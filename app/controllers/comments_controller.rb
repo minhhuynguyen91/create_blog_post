@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
 
   def create
     @blog = Blog.find(params[:blog_id])
-    @comment = Comment.new comment_params
+    @comment = @blog.comments.build comment_params
     if @comment.save
       flash[:success] = "Comment created successfully"
       redirect_to blog_path(@blog)
