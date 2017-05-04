@@ -1,0 +1,11 @@
+<div class="ui top fixed large inverted two item borderless menu">
+  <%= link_to "Home", root_path, class: 'item' %>
+  
+  <% if current_user %>
+    <%= link_to 'Sign Out', signout_path, class: 'item' %>
+  <% else %>
+    <%= link_to 'Sign In', signin_path, class: 'item' %>
+  <% end %>
+</div>
+<br>
+<br>

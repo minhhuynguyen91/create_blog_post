@@ -1,6 +1,7 @@
 class BlogsController < ApplicationController
-  before_action :set_blog
-
+  before_action :set_blog, :only => [:show, :new, :edit]
+  before_action :require_signin
+  
   def index
     @blogs = Blog.all
   end
