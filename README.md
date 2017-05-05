@@ -7,7 +7,7 @@ Submitted by: **Nguyen Huy Minh**
 
 Time spent: **20** hours spent in total
 
-URL: **https://coderschool-prework-blog.herokuapp.com/articles**
+URL: **https://rth-create-blog.herokuapp.com**
 
 # Requirements
 
