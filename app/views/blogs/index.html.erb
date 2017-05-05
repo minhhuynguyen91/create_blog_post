@@ -11,6 +11,17 @@
     </div>
   <% end %>
   <br>
+  <div class="ui dropdown labeled icon button">
+    <i class="filter icon"></i>
+    <span class="text">Sort post by created date</span>
+      <div class="menu">
+        <%= link_to 'Ascending', blogs_path(sort_type: 'Ascending'), class: 'item' %>
+        <%= link_to 'Descending', blogs_path(sort_type: 'Descending'), class: 'item' %>
+      </div>
+  </div>
+  
+  <br>
+  <br>
   <%= link_to 'Create new blog', new_blog_path, class: 'ui primary button' %>
   <br>
   <br>
@@ -22,3 +33,7 @@
     </div>
   <% end %>
 </div>
+
+<script type="text/javascript">
+  $('.ui.dropdown').dropdown();
+</script>

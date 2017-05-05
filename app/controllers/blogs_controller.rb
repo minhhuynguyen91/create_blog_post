@@ -9,6 +9,12 @@ class BlogsController < ApplicationController
     if params[:title]
       @blogs = Blog.search(params[:title])
     end
+    
+    if params[:sort_type] == "Ascending"
+      @blogs = Blog.all.order(created_at: :asc)
+    elsif params[:sort_type] == "Descending"
+      @blogs = Blog.all.order(created_at: :desc)
+    end
   end
 
   def new
