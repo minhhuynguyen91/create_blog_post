@@ -14,7 +14,11 @@
   <%= link_to 'Create new blog', new_blog_path, class: 'ui primary button' %>
   <br>
   <br>
-  <div class="ui two cards">
-    <%= render @blogs %>
-  </div>
+  <% if @blogs.empty? %>
+    <h2 style="color:red;"> Sorry, the resource is not found </h2>
+  <% else %>
+    <div class="ui two cards">
+      <%= render @blogs %>
+    </div>
+  <% end %>
 </div>
