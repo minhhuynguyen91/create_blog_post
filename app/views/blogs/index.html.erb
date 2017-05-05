@@ -1,6 +1,16 @@
 <br>
 <div class="ui container"> 
   <h1>Blogs</h1>
+  
+  <%= form_tag blogs_path, method: :get, class: 'ui form' do %>
+    <div class="fields">
+      <div class="ui input">
+        <%= text_field_tag :title, nil, placeholder: 'Search Blog Title', class: 'field' %>
+      </div>
+      <%= submit_tag "Search", class: 'ui button' %>
+    </div>
+  <% end %>
+  <br>
   <%= link_to 'Create new blog', new_blog_path, class: 'ui primary button' %>
   <br>
   <br>

@@ -6,6 +6,9 @@ class BlogsController < ApplicationController
   def index
     @blogs = Blog.all
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    if params[:title]
+      @blogs = Blog.search(params[:title])
+    end
   end
 
   def new

@@ -21,10 +21,12 @@ class ApplicationController < ActionController::Base
   
   def check_user_permission(id)
     blog = Blog.find(id)
-    if current_user.id == blog.user_id
-      true
-    else
-      false
+    if current_user
+      if current_user.id == blog.user_id
+        true
+      else
+        false
+      end
     end
   end
 end
