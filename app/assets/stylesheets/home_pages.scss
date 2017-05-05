@@ -1,3 +1,6 @@
-// Place all the styles related to the home_pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#home_page {
+  height:100%;
+  width:100%;
+  background-image: url(/assets/background_page.jpg);
+  background-size:cover;
+}
