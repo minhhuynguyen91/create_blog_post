@@ -2,4 +2,9 @@
 <div class="ui container"> 
   <h1>Blogs</h1>
   <%= link_to 'Create new blog', new_blog_path, class: 'ui primary button' %>
+  <br>
+  <br>
+  <div class="ui two cards">
+    <%= render @blogs %>
+  </div>
 </div>

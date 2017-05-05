@@ -1,0 +1,14 @@
+<div class="ui card">
+  <div class="content">
+    <div class="header"> <%= blog.title %> </div>
+    <div class="description"> 
+      <%= @markdown.render(blog.content).html_safe %> 
+    </div>
+  </div>
+  <div class="extra content">
+    <%= link_to 'Show', blog_path(blog), class: 'ui primary button' %>
+    <% if check_user_permission(blog.id) %>
+      <%= link_to 'Destroy', blog_path(blog), method: :delete, data: {confirm: 'Are you sure?'}, class: 'ui red button' %>
+    <% end %>
+  </div>
+</div>

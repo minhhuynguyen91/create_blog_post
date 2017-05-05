@@ -36,6 +36,15 @@ class BlogsController < ApplicationController
   end
 
   def destroy
+    if check_user_permission(params[:id])
+      @blog = Blog.find(params[:id])
+      @blog.destroy
+      flash[:success] = "Successfully deleted"
+      redirect_to blogs_path
+    else
+      flash[:error] = "You don't have permission to conduct this action"
+      redirect_to blogs_path
+    end
   end
 
   private
