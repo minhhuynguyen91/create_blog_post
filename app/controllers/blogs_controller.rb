@@ -5,6 +5,7 @@ class BlogsController < ApplicationController
   
   def index
     @blogs = Blog.all
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
 
   def new
@@ -17,12 +18,15 @@ class BlogsController < ApplicationController
       flash[:success] = "Blog created successfully"
       redirect_to blogs_path
     else
-      flash[:error] = "Blog cannot be created"
+      flash[:error] = @blog.errors.full_messages.to_sentence
       render 'new'
     end
   end
 
   def show
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    @comment = Comment.new
+    @comments = @blog.comments
   end
 
   def edit

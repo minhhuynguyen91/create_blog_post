@@ -9,13 +9,13 @@ class CommentsController < ApplicationController
       flash[:success] = "Comment created successfully"
       redirect_to blog_path(@blog)
     else
-      flash[:error] = "Comment cannot be created"
+      flash[:error] = @comment.errors.full_messages.to_sentence
       render blog_path(@blog)
     end
   end
 
   private
     def comment_params
-      params.require(:blog).permit(:name, :content)
+      params.require(:comment).permit(:name, :content)
     end
 end
