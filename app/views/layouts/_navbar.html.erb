@@ -1,6 +1,6 @@
-<div class="ui top fixed large inverted two item borderless menu">
+<div class="ui top fixed large inverted borderless menu">
   <%= link_to "Home", root_path, class: 'item' %>
-  
+  <p class="item"></p>
   <% if current_user %>
     <%= link_to 'Sign Out', signout_path, method: 'delete', class: 'item' %>
   <% else %>
@@ -25,3 +25,5 @@
     $('.small.modal').modal('show');
   });
 </script>
+
+<%= flash_messages %>

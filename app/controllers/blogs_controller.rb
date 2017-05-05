@@ -23,12 +23,17 @@ class BlogsController < ApplicationController
 
   def create
     @blog = @user.blogs.build blog_params
-    if @blog.save
-      flash[:success] = "Blog created successfully"
-      redirect_to blogs_path
-    else
-      flash[:error] = @blog.errors.full_messages.to_sentence
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    if params[:preview_button]
       render 'new'
+    else
+      if @blog.save
+        flash[:success] = "Blog created successfully"
+        redirect_to blogs_path
+      else
+        flash[:error] = @blog.errors.full_messages.to_sentence
+        render 'new'
+      end
     end
   end
 

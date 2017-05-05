@@ -7,5 +7,18 @@
     <label> Body </label> 
     <%= f.text_area :content %> <br>
   </div>
-  <%= f.submit 'Submit', class: 'ui button' %>
+  <%= f.submit 'Submit', class: 'ui primary button' %>
+   <%= button_tag(type: 'submit', class: "ui secondary basic button", :name => "preview_button") do %>
+      Preview
+    <% end %>
 <% end %>
+
+<br>
+<br>
+<% if params[:preview_button] %>
+  <div class="ui piled segment">
+    <div class="ui header"> Preview </div>
+    <%= @markdown.render(@blog.content).html_safe %>
+ </div>
+<% end %>
+<br>
