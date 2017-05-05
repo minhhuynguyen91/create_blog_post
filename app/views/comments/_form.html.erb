@@ -1,9 +1,13 @@
 <%= form_for [@blog, @comment], :html => {class: 'ui form'} do |f| %>
+  <% unless current_user %>
   <div class="four fields">
     <div class="field">
       Name <%= f.text_field :name %>
     </div>
   </div>
+  <% else %>
+    <%= f.hidden_field :name, value: current_user.full_name %>
+  <% end %>
   <div class="four fields">
     <div class="field">
       Content <%= f.text_field :content %>
